@@ -5,24 +5,20 @@ void shortName(char name[])
 {
     int i, lastSpace = -1;
 
-    // Remove newline added by fgets
     name[strcspn(name, "\n")] = '\0';
 
-    // Find last space
     for (i = 0; name[i] != '\0'; i++)
     {
         if (name[i] == ' ')
             lastSpace = i;
     }
 
-    // If no space → only one word
     if (lastSpace == -1)
     {
         printf("%s", name);
         return;
     }
 
-    // Print initials
     printf("%c.", name[0]);
 
     for (i = 1; i < lastSpace; i++)
@@ -31,7 +27,6 @@ void shortName(char name[])
             printf("%c.", name[i + 1]);
     }
 
-    // Print last word
     printf(" %s", &name[lastSpace + 1]);
 }
 
